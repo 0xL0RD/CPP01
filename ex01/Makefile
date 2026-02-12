@@ -1,4 +1,4 @@
-NAME = Zombie
+NAME = Moar_brainz
 SRCS = main.cpp		Zombie.cpp		zombieHord.cpp
 OBJS = $(SRCS:%.c=%.o)
 CXX = c++

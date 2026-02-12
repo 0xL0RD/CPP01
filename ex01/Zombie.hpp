@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:47:24 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/12 12:28:23 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/12 12:41:30 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Zombie
 {
 public:
-	//Zombie(std::string name);
 	void		name_set(std::string name);
 	Zombie(void);
 	~Zombie(void);
