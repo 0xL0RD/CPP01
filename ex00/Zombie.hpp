@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:47:24 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/12 09:16:42 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/12 10:33:14 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,8 @@ public:
 private:
 	std::string	_name;
 };
+
+void	randomChump(std::string name);
+Zombie*	newZombie(std::string name);
 
 #endif

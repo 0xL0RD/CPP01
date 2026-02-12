@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:47:24 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/12 09:08:15 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/12 09:22:09 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	Zombie::announce(void)
 
 Zombie::Zombie(std::string name)
 {
-	if (name.empty() == 1)
-		return ;
 	this->_name = name;
 	return ;
 }
