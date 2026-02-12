@@ -1,6 +1,6 @@
 NAME = Moar_brainz
 SRCS = main.cpp		Zombie.cpp		zombieHord.cpp
-OBJS = $(SRCS:%.c=%.o)
+OBJS = $(SRCS:%.cpp=%.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
