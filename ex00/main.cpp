@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 18:47:24 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/12 10:40:36 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/12 11:13:36 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	main(void)
 		z->announce();
 		delete (z);
 	}
-
 	std::cout << std::endl;
+
 	randomChump("zSTACK");
 	std::cout << std::endl;
 
