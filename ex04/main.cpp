@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 07:26:40 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/13 13:53:37 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/13 14:32:34 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	sd_copyall(
 
 	while (1)
 	{
-		std::cout << "---------------";
 		in.read(buff, sizeof(buff));
 		if (in.bad() == true)
 			return (-1);
@@ -55,7 +54,6 @@ int	sb_replaceinstream(
 	str.reserve(BUFFER_SIZE + needle.size());
 	while (1)
 	{
-		std::cout << "---------------" << std::endl;
 		in.read(buff, sizeof(buff));
 		if (in.bad() == true)
 			return (-1);
@@ -65,22 +63,13 @@ int	sb_replaceinstream(
 		str.append(buff, in.gcount());
 		while (1)
 		{
-			std::cout << "---------------" << std::endl;
 			if (str.size() < needle.size())
 				break ;
 			pos = str.find(needle);
 			if (pos != std::string::npos)
 			{
 				out.write(str.data(), pos);
-				std::cout << "w1: ";
-				std::cout.write(str.data(), pos);
-				std::cout << std::endl;
-				std::cout << "---------------" << std::endl;
 				out.write(replacement.data(), replacement.size());
-				std::cout << "w2: ";
-				std::cout.write(replacement.data(), replacement.size());
-				std::cout << std::endl;
-				std::cout << "---------------" << std::endl;
 				str.erase(0, pos + needle.size());
 			}
 			else
@@ -88,30 +77,12 @@ int	sb_replaceinstream(
 		}
 		if (str.size() < needle.size())
 			break ;
-		std::cout << "str_size: " << str.size() << std::endl;
 		out.write(str.data(), str.size() - (needle.size() - 1));
-		std::cout << "str_size: " << str.size() << std::endl;
-		std::cout << "w3: " << str.size() << ": ";
-		std::cout.write(str.data(), str.size() - (needle.size() - 1));
-		std::cout << std::endl;
-		std::cout << "---------------" << std::endl;
-		std::cout << "s0: ";
-		std::cout.write(str.data(), str.size());
-		std::cout << std::endl;
-		std::cout << "---------------" << std::endl;
 		str.erase(0, str.size() - (needle.size() - 1));
-		std::cout << "s1: ";
-		std::cout.write(str.data(), str.size());
-		std::cout << std::endl;
-		std::cout << "---------------" << std::endl;
 		if (in.eof() == true)
 			break ;
 	}
 	out.write(str.data(), str.size());
-	std::cout << "w4: ";
-	std::cout.write(str.data(), str.size());
-	std::cout << std::endl;
-	std::cout << "---------------" << std::endl;
 	return (1);
 }
 
