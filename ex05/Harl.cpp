@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 14:44:21 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/13 16:11:45 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/13 16:34:12 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
+	static const std::string	db[LEVELS_LEN] =
+	{
+		"DEBUG",
+		"INFO",
+		"WARNING",
+		"ERROR"
+	};
 	static void	(Harl::*f[LEVELS_LEN])(void) =
 	{
 		&Harl::debug,
@@ -53,11 +60,17 @@ void	Harl::complain(std::string level)
 		&Harl::warning,
 		&Harl::error
 	};
-	int					index;
+	unsigned int		index;
 
-	if (level.size() != 1)
-		return ;
-	index = level.data()[0] - '0';
+	index = LEVELS_LEN;
+	for (unsigned int i = 0; i < LEVELS_LEN; i++)
+	{
+		if (db[i] == level)
+		{
+			index = i;
+			break ;
+		}
+	}
 	if (index < LEVELS_LEN && f[index] != NULL)
 		(this->*f[index])();
 }
