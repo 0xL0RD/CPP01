@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 14:44:21 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/13 17:14:52 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:43:28 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ int	main(int argc, char *argv[])
 		h.complain(argv[1]);
 		std::cout << std::endl;
 	}
-
 	return (0);
 }
