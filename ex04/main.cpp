@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 07:26:40 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/13 14:32:34 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/13 14:37:19 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	sb_replaceinstream(
 	
 	if (needle.size() >= BUFFER_SIZE)
 	{
-		std::cout << "needle.size() can not be equal or greater than "
+		std::cout << "[ERROR] needle.size() can not be equal or greater than "
 			<< BUFFER_SIZE << " (BUFFER_SIZE)"
 			<< std::endl;
 		return (-1);
@@ -57,9 +57,6 @@ int	sb_replaceinstream(
 		in.read(buff, sizeof(buff));
 		if (in.bad() == true)
 			return (-1);
-		//if (in.gcount() == 0) //TODO: change to .eofbit
-		//if (in.eof() == true)
-			//return (1);
 		str.append(buff, in.gcount());
 		while (1)
 		{
@@ -113,7 +110,7 @@ int	main(int argc, char *argv[])
 	in.open(fileIn.c_str(), std::ios::binary);
 	if (in == false)
 	{
-		std::cout << '"' << fileIn << '"'
+		std::cout << '"' << "[ERROR]" << fileIn << '"'
 			<< " could not be opened"
 			<< std::endl;
 		return (1);
@@ -121,13 +118,14 @@ int	main(int argc, char *argv[])
 	out.open(fileOut.c_str(), std::ios::binary);
 	if (out == false)
 	{
-		std::cout << "fileout (" << '"' << fileOut << ")" << "'"
+		std::cout << "[ERROR] fileout (" << '"' << fileOut << ")" << "'"
 			<< " could not be opened"
 			<< std::endl;
 		in.close();
 		return (1);
 	}
-	if (needle.empty() == true)
+	if (needle.empty() == true
+			|| needle == replacement)
 	{
 		r = sd_copyall(in, out);
 		if (r < 0)
