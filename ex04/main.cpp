@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 07:26:40 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/13 18:24:36 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/13 18:25:59 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	main(int argc, char *argv[])
 	in.open(fileIn.c_str(), std::ios::binary);
 	if (in == false)
 	{
-		std::cout << "[ERROR]" << '"' << fileIn << '"'
+		std::cout << "[ERROR] " << '"' << fileIn << '"'
 			<< " could not be opened"
 			<< std::endl;
 		return (1);
