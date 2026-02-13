@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 14:44:21 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/13 15:47:27 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:58:23 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ enum e_levels
 class Harl
 {
 	public:
- 		void	complain(std::string level); //const
+ 		void	complain(std::string level);
 
 	private:
-		void	debug(void);	//const
-		void	info(void);		//const
-		void	warning(void);	//const
-		void	error(void);	//const
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
 };
 
 #endif 

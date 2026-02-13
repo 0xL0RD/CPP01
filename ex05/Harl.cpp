@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 14:44:21 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/13 16:34:12 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:59:34 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	Harl::complain(std::string level)
 		"WARNING",
 		"ERROR"
 	};
-	static void	(Harl::*f[LEVELS_LEN])(void) =
+	static void	(Harl::* const f[LEVELS_LEN])(void) =
 	{
 		&Harl::debug,
 		&Harl::info,
