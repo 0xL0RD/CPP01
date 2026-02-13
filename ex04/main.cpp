@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 07:26:40 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/13 10:18:13 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/13 11:46:22 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,22 @@ int	sb_replaceinstream(
 	std::string		str;
 	std::size_t		pos;
 	
+	if (needle.size() >= BUFFER_SIZE)
+	{
+		std::cout << "needle.size() can not be equal or greater to "
+			<< BUFFER_SIZE << " (BUFFER_SIZE)"
+			<< std::endl;
+		return (-1);
+	}
 	str.reserve(BUFFER_SIZE + needle.size());
 	while (1)
 	{
 		in.read(buff, sizeof(buff));
-		if (in == false)
+		//if (in == false)
+		std::cout << "test" << std::endl;
+		if (in.bad() == true)
 			return (-1);
-		if (in.gcount() == 0)
+		if (in.gcount() == 0) //TODO: change to .eofbit
 			return (1);
 		str.append(buff, in.gcount());
 		while (1)
@@ -79,6 +88,8 @@ int	main(int argc, char *argv[])
 	int			r;
 	std::string	needle;
 	std::string	replacement;
+	std::ifstream	in;
+	std::ofstream	out;
 
 	if (argc != 4)
 	{
@@ -94,7 +105,8 @@ int	main(int argc, char *argv[])
 	fileOut = fileIn + ".replace";
 	needle = argv[2];
 	replacement = argv[3];
-	std::ifstream in(fileIn.data(), std::ios::in | std::ios::binary);
+	//std::ifstream in(fileIn.c_str(), std::ios::in | std::ios::binary);
+	in.open(fileIn.c_str(), std::ios::binary);
 	if (in == false)
 	{
 		std::cout << '"' << fileIn << '"'
@@ -102,7 +114,8 @@ int	main(int argc, char *argv[])
 			<< std::endl;
 		return (1);
 	}
-	std::ofstream out(fileOut.data(), std::ios::out | std::ios::binary);
+	//std::ofstream out(fileOut.c_str(), std::ios::out | std::ios::binary);
+	out.open(fileOut.c_str(), std::ios::binary);
 	if (out == false)
 	{
 		std::cout << "fileout (" << '"' << fileOut << ")" << "'"
@@ -116,6 +129,7 @@ int	main(int argc, char *argv[])
 		r = sd_copyall(in, out);
 		if (r < 0)
 		{
+			std::cout << "[ERROR] NO needle copying failed" << std::endl;
 			in.close();
 			out.close();	//TODO: remove fileOut if error
 			return (1);

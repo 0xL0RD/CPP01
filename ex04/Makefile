@@ -21,6 +21,6 @@ fclean: clean
 re: fclean all
 
 run: $(NAME)
-	./$<
+	./$< rbs.log o O
 
 .PHONY: all clean fclean re run
