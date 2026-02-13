@@ -6,7 +6,7 @@
 /*   By: rubsanch <rubsanch@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 14:44:21 by rubsanch          #+#    #+#             */
-/*   Updated: 2026/02/13 16:38:17 by rubsanch         ###   ########.fr       */
+/*   Updated: 2026/02/13 16:40:30 by rubsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ int	main(int argc, char *argv[])
 
 	if (argc == 2)
 	{
-	std::cout << "Complaining as " << argv[1] << ": " << std::endl;
-	h.complain(argv[1]);
-	std::cout << std::endl;
+		std::cout << "Complaining as " << argv[1] << ": " << std::endl;
+		h.complain(argv[1]);
+		std::cout << std::endl;
 	}
-
 	return (0);
 }
